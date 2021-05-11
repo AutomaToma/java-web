@@ -4,10 +4,14 @@ import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import pages.HomePage;
+import pages.MinhaContaPage;
+import pages.SignInPage;
 
 public class LoginStep {
 
 	HomePage home = new HomePage();
+	SignInPage login = new SignInPage();
+	MinhaContaPage minhaConta = new MinhaContaPage();
 
 	@Dado("que abra o site e va ate a pagina de login")
 	public void que_abra_o_site_e_va_ate_a_pagina_de_login() throws InterruptedException {
@@ -15,21 +19,21 @@ public class LoginStep {
 		home.acessarUrl();
 		home.validarAcesso();
 		home.acessarLogin();
-		Thread.sleep(5000);
 	}
 
 	@Dado("que esteja na pagina de login")
 	public void que_esteja_na_pagina_de_login() {
-		// Write code here that turns the phrase above into concrete actions
+		login.validarSignInPage();
 	}
 
 	@Quando("inserir usuario e senha corretamente")
 	public void inserir_usuario_e_senha_corretamente() {
-		// Write code here that turns the phrase above into concrete actions
+		login.loginComDadosValidos("automatomati@gmail.com", "12345");
 	}
 
 	@Entao("o login eh validado com sucesso")
 	public void o_login_eh_validado_com_sucesso() {
-		// Write code here that turns the phrase above into concrete actions
+		minhaConta.validarMinhaConta();
+		minhaConta.validarMensagemWelcome();
 	}
 }
