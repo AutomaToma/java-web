@@ -1,5 +1,9 @@
 package steps;
 
+import java.util.Random;
+
+import com.github.javafaker.Faker;
+
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
@@ -10,11 +14,18 @@ public class CadastroStep {
 
 	HomePage home = new HomePage();
 	CadastroPage cadastro = new CadastroPage();
+	Faker faker = new Faker();
+
+	//Gerar numero randomico
+	Random random = new Random();
+	int numeroRandom = random.nextInt(10000);
+	
+	String email = faker.elderScrolls().firstName() + numeroRandom + "@gmail.com";
 
 	@Dado("que eu esteja na pagina de cadastro")
 	public void que_eu_esteja_na_pagina_de_cadastro() throws InterruptedException {
 		cadastro.validarPagCadastro();
-		cadastro.inserirEmail("brunorabelosimoes@gmail.com");
+		cadastro.inserirEmail(email);
 		cadastro.cliqueBtnCriarConta();
 		cadastro.validarInfoPessoal();
 		Thread.sleep(3000);
@@ -23,12 +34,14 @@ public class CadastroStep {
 
 	@Quando("realizo meu cadastro com os dados corretos")
 	public void realizo_meu_cadastro_com_os_dados_corretos() {
-
+		cadastro.realizarCadastro("Bruno", "Simões", email, "123456", "1", "1", "1986", "Bruno",
+				"Simões", "AutomaToma", "Rua Teste", "Teste City", "New York", "14925", "United States", "Teste",
+				"9922222222", "9911111111", "Bruno Casa");
 	}
 
 	@Entao("o cadastro e realizado com sucesso")
 	public void o_cadastro_e_realizado_com_sucesso() {
-
+		cadastro.validarContaCriada();
 	}
 
 }
