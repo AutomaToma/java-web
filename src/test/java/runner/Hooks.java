@@ -13,7 +13,6 @@ public class Hooks extends Driver {
 	public void setup() {
 		getDriver();
 		home.acessarUrl();
-		home.acessarLogin();
 		
 	}
 	

@@ -7,13 +7,15 @@ import com.github.javafaker.Faker;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
-import pages.CadastroPage;
+import pages.RegisterPage;
 import pages.HomePage;
+import pages.LoginPage;
 
 public class CadastroStep {
 
 	HomePage home = new HomePage();
-	CadastroPage cadastro = new CadastroPage();
+	LoginPage login = new LoginPage();
+	RegisterPage cadastro = new RegisterPage();
 	Faker faker = new Faker();
 
 	//Gerar numero randomico
@@ -24,6 +26,7 @@ public class CadastroStep {
 
 	@Dado("que eu esteja na pagina de cadastro")
 	public void que_eu_esteja_na_pagina_de_cadastro() throws InterruptedException {
+		home.acessarLogin();
 		cadastro.validarPagCadastro();
 		cadastro.inserirEmail(email);
 		cadastro.cliqueBtnCriarConta();

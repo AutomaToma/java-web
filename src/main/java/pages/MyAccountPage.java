@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MinhaContaPage extends BasePage{
+public class MyAccountPage extends BasePage{
 	
-	public MinhaContaPage() {
+	public MyAccountPage() {
 		PageFactory.initElements(driver, this);
 	}
 	

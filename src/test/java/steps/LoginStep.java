@@ -4,14 +4,14 @@ import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import pages.HomePage;
-import pages.MinhaContaPage;
-import pages.SignInPage;
+import pages.MyAccountPage;
+import pages.LoginPage;
 
 public class LoginStep {
 
 	HomePage home = new HomePage();
-	SignInPage login = new SignInPage();
-	MinhaContaPage minhaConta = new MinhaContaPage();
+	LoginPage login = new LoginPage();
+	MyAccountPage minhaConta = new MyAccountPage();
 
 	@Dado("que abra o site e va ate a pagina de login")
 	public void que_abra_o_site_e_va_ate_a_pagina_de_login() throws InterruptedException {

@@ -4,7 +4,7 @@ Funcionalidade: Realizar cadastro
 	Como potencial cliente da loja
 	Quero realizar cadastro
 
-	@AUT-2
+	@AUT-02
 Cenario: Realizar cadastro com dados validos
 	Dado que eu esteja na pagina de cadastro
 	Quando realizo meu cadastro com os dados corretos

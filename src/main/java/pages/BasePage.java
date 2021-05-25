@@ -2,13 +2,18 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import config.Driver;
 
 public class BasePage {
-	WebDriver driver = Driver.getDriver();
+	@FindBy(xpath="//img[contains(@class, 'logo')]")
+	private WebElement logo;
 
+	WebDriver driver = Driver.getDriver();
+	
+	
 	public void acessarUrl() {
 		driver.get("http://automationpractice.com/index.php");
 	}
@@ -25,6 +30,10 @@ public class BasePage {
 	public void selecionarPorTexto(WebElement elemento, String texto) {
 		Select selectDateDays = new Select(elemento);
 		selectDateDays.selectByVisibleText(texto);;
+	}
+	
+	public void voltarParaHome(){
+		logo.click();
 	}
 	
 	

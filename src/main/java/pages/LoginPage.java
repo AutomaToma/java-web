@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SignInPage extends BasePage{
-	public SignInPage() {
+public class LoginPage extends BasePage{
+	public LoginPage() {
 		PageFactory.initElements(driver, this);
 	}
 	
