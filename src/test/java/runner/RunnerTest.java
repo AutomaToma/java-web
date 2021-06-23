@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
 	snippets = SnippetType.UNDERSCORE,
 	features = {"classpath:features"},
 	glue = {"steps","runner"},
-	tags = {"@AUT-2"}
+	tags = {"@AUT-04"}
 )
 public class RunnerTest {
 	

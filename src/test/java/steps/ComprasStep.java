@@ -3,6 +3,7 @@ package steps;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
+import pages.ComprasPage;
 import pages.HomePage;
 import pages.MyAccountPage;
 import pages.LoginPage;
@@ -12,6 +13,7 @@ public class ComprasStep {
 	HomePage home = new HomePage();
 	LoginPage login = new LoginPage();
 	MyAccountPage minhaConta = new MyAccountPage();
+	ComprasPage comprasPage = new ComprasPage();
 	
 	@Dado("que esteja logado na pagina inicial")
 	public void que_esteja_logado_na_pagina_inicial() {
@@ -22,9 +24,11 @@ public class ComprasStep {
 	}
 
 	@Dado("adicione {string} ao carrinho")
-	public void adicione_ao_carrinho(String nomeDoProduto) {
+	public void adicione_ao_carrinho(String nomeDoProduto) throws Exception {
 		home.clickBtnAddToCart(nomeDoProduto);
-		home.validarItemAdicionadoCarrinho();
+		comprasPage.validarInformacoesProduto(nomeDoProduto);
+		comprasPage.inserirInformacoesDeCompra();
+		comprasPage.validarProdutoAdicionadoAoCarrinho(nomeDoProduto);
 	}
 
 	@Quando("prosseguir com a compra ate o checkout")

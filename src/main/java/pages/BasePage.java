@@ -36,5 +36,12 @@ public class BasePage {
 		logo.click();
 	}
 	
+	public void pietro(int milissegundos) {
+		try {
+			Thread.sleep(milissegundos);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 }

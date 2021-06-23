@@ -38,23 +38,17 @@ public class HomePage extends BasePage {
 	
 	public void clickBtnAddToCart(String nomeDoProduto){
 
-		Actions actions = new Actions(driver);
-		
+		Actions actions = new Actions(driver);		
 		WebElement nomeProduto = driver.findElement(By.xpath("//li[contains(@class, 'last-item-of-mobile-line')]//a[contains(text(), '" + nomeDoProduto +"')]"));
-		WebElement precoProduto = nomeProduto.findElement(By.xpath("//..//..//..//span[@itemprop='price']"));
-		String precoTratado = precoProduto.getText().trim().replace("$", "");
+//		WebElement precoProduto = nomeProduto.findElement(By.xpath("//..//..//..//span[@itemprop='price']"));
+//		String precoTratado = precoProduto.getText().trim().replace("$", "");		
+//		JavascriptExecutor js = (JavascriptExecutor) driver;		
+//		values.setValorProduto(precoTratado);		
+//		actions.moveToElement(nomeProduto).build().perform();
+//		WebElement btnAddToCart = nomeProduto.findElement(By.xpath("//..//..//div[@class='button-container']//span[text()='Add to cart']"));
+//		js.executeScript("arguments[0].scrollIntoView();", btnAddToCart);
 		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		
-		values.setValorProduto(precoTratado);
-				
-		
-		actions.moveToElement(nomeProduto).build().perform();
-
-		WebElement btnAddToCart = nomeProduto.findElement(By.xpath("//..//..//div[@class='button-container']//span[text()='Add to cart']"));
-		js.executeScript("arguments[0].scrollIntoView();", btnAddToCart);
-		
-		btnAddToCart.click();
+		nomeProduto.click();
 	}
 	
 	public void validarItemAdicionadoCarrinho(){
