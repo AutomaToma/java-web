@@ -6,6 +6,7 @@ import cucumber.api.java.pt.Quando;
 import pages.ComprasPage;
 import pages.HomePage;
 import pages.MyAccountPage;
+import pages.OrderPage;
 import pages.LoginPage;
 
 public class ComprasStep {
@@ -14,6 +15,7 @@ public class ComprasStep {
 	LoginPage login = new LoginPage();
 	MyAccountPage minhaConta = new MyAccountPage();
 	ComprasPage comprasPage = new ComprasPage();
+	OrderPage order = new OrderPage();
 	
 	@Dado("que esteja logado na pagina inicial")
 	public void que_esteja_logado_na_pagina_inicial() {
@@ -33,11 +35,16 @@ public class ComprasStep {
 
 	@Quando("prosseguir com a compra ate o checkout")
 	public void prosseguir_com_a_compra_ate_o_checkout() {
-		
+		order.passoValidarCarrinho();
+		order.clicarProcederCheckout();
+		order.passoValidarEndereco();
+		order.clicarProcederCheckout();
+		order.validarEntrega();
+		order.clicarProcederCheckout();
 	}
 
 	@Entao("a compra e realizada com sucesso")
 	public void a_compra_e_realizada_com_sucesso() {
-		
+		order.validarPagamento();
 	}
 }

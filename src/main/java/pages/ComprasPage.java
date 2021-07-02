@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import static config.Driver.getDriver;
 
+import java.text.DecimalFormat;
+
 import beans.ValuesHelper;
 
 public class ComprasPage extends BasePage {
@@ -16,7 +18,7 @@ public class ComprasPage extends BasePage {
 		PageFactory.initElements(getDriver(), this);
 	}
 	
-	private ValuesHelper helper = new ValuesHelper();
+	static ValuesHelper helper = new ValuesHelper();
 	
 	@FindBy(xpath = "//h1[@itemprop='name']")
 	private WebElement tituloProduto;
@@ -73,10 +75,8 @@ public class ComprasPage extends BasePage {
 		Assert.assertEquals(helper.getValorProduto(), precoUnitarioCarrinho.getText().replace("$", ""));
 		helper.setValorFrete(valorFreteCarrinho.getText().replace("$", ""));
 		float valorTotal = Float.parseFloat(valorTotalCarrinho.getText().replace("$", ""));
-		helper.setValorTotal(String.valueOf(valorTotal));
+		helper.setValorTotal(String.valueOf(String.format("%.2f", valorTotal)));
 		Assert.assertEquals(String.valueOf(helper.somarValorTotal(helper.getValorProduto(), helper.getValorFrete())), String.valueOf(valorTotal));
 		btnProceedToCheckout.click();
 	}
-			
-
 }

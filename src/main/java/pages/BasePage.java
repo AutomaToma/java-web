@@ -1,5 +1,7 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,6 +34,11 @@ public class BasePage {
 		selectDateDays.selectByVisibleText(texto);;
 	}
 	
+	public void selecionarPrimeiro(WebElement elemento) {
+		Select select = new Select(elemento);
+		select.selectByIndex(0);
+	}
+	
 	public void voltarParaHome(){
 		logo.click();
 	}
@@ -39,9 +46,20 @@ public class BasePage {
 	public void pietro(int milissegundos) {
 		try {
 			Thread.sleep(milissegundos);
+			System.out.println("HMMMMM A MIMIR");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
+	public void descerAteOTexto(String texto) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true)", driver.findElement(By.partialLinkText(texto)));
+    }
+
+    public void scrollDown() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,285)");
+    }
 	
 }
