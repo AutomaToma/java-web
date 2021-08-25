@@ -46,5 +46,8 @@ public class ComprasStep {
 	@Entao("a compra e realizada com sucesso")
 	public void a_compra_e_realizada_com_sucesso() {
 		order.validarPagamento();
+		order.escolherMetodoDePagamento("bankwire");
+		order.confirmarPedido();
+		order.confirmarFinalizacaoDaCompra();
 	}
 }
