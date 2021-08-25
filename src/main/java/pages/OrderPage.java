@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -50,6 +51,18 @@ public class OrderPage extends BasePage{
 	
 	@FindBy(xpath = "//div[@class = 'delivery_option_price']")
 	private WebElement valorEntregaShipping;
+
+	@FindBy(className = "page-heading")
+	private WebElement tituloPedidoPage;
+
+	@FindBy(xpath = "//div[@class='box cheque-box']//p/span[@class='price']")
+	private WebElement spanValorTotalConfirmacaoPedido;
+
+	@FindBy(xpath = "//span[text()='I confirm my order']/../../button")
+	private WebElement buttonConfirmarPedido;
+
+	@FindBy(className = "cheque-indent")
+	private WebElement textoCompraComSucesso;
 	
 	public void validarValoresPedido(){
 		assertEquals(values.getValorProduto(), lblTotalProdutos.getText().replace("$", ""));
@@ -114,5 +127,32 @@ public class OrderPage extends BasePage{
 		assertEquals(values.getValorFrete(), lblValorFrete.getText().trim().replace("$", ""));
 		assertEquals(values.somarValorTotal(values.getValorProduto(), values.getValorFrete()), Float.parseFloat(lblValorTotal.getText().trim().replace("$", "")), 0.0f);
 	}
+
+	public void escolherMetodoDePagamento(String pagamento){
+		System.out.println("======\n Entrando na escolha de método de pagamento \n======");
+		WebElement elemento = null;
+
+		if(pagamento.equals("bankwire")){
+			System.out.println("======\n Escolhido transferência bancária \n======");
+			elemento = getDriver().findElement(By.xpath("//a[@class='"+pagamento+"']"));
+			elemento.click();
+		}else{
+			System.out.println("======\n Escolhido cheque \n======");
+			elemento = getDriver().findElement(By.xpath("//a[@class='"+pagamento+"']"));
+			elemento.click();
+		}
+	}
+
+	public void confirmarPedido(){
+		Assert.assertEquals("ORDER SUMMARY".trim(), tituloPedidoPage.getText().trim());
+		Assert.assertEquals(String.valueOf(values.getValorTotal().replace(",", ".")), spanValorTotalConfirmacaoPedido.getText().replace("$", "").trim());
+		buttonConfirmarPedido.click();
+	}
+
+	public void confirmarFinalizacaoDaCompra(){
+		Assert.assertEquals("ORDER CONFIRMATION".trim(), tituloPedidoPage.getText().trim());
+		Assert.assertEquals("Your order on My Store is complete.".trim(), textoCompraComSucesso.getText().trim());
+	}
+
 }
 
