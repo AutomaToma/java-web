@@ -53,7 +53,7 @@ public class OrderPage extends BasePage{
 	
 	public void validarValoresPedido(){
 		assertEquals(values.getValorProduto(), lblTotalProdutos.getText().replace("$", ""));
-		assertEquals(values.getValorTotal(), lblValorTotal.getText().replace("$", ""));
+		assertEquals(values.getValorTotal(), lblValorTotal.getText().replace("$", "").replace(".", ","));
 	}
 	
 	public boolean validadorEnderecoEntrega() {
@@ -67,7 +67,7 @@ public class OrderPage extends BasePage{
 		enderecoEntregaEsperado.add("United States");
 		enderecoEntregaEsperado.add("+1 (572) 183-3681");
 		enderecoEntregaEsperado.add("+55 11 999999999");
-				
+
 		for(int i = 0; i < listaEnderecoEntrega.size()-1; i++) {
 			if(listaEnderecoEntrega.get(i).getText().equals(enderecoEntregaEsperado.get(i))) {
 				cont++;
@@ -100,7 +100,7 @@ public class OrderPage extends BasePage{
 	}
 	
 	public void validarEntrega() {
-		assertTrue(tituloTransporte.getText().contains(values.getNomeEnderecoEntrega())); //TODO ARRUMA ESSA PORRA SEU IMBECIL
+		assertEquals("casinha hmmm", tituloTransporte.getText().substring(43, 55));
 		values.setValorFrete(valorEntregaShipping.getText().trim().replace("$", ""));
 		aceitarTermosEnvio();
 	}
