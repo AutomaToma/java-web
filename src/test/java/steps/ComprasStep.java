@@ -1,6 +1,7 @@
 package steps;
 
 import cucumber.api.java.pt.Dado;
+import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import pages.ComprasPage;
@@ -50,4 +51,42 @@ public class ComprasStep {
 		order.confirmarPedido();
 		order.confirmarFinalizacaoDaCompra();
 	}
+
+	// >>>>>> CENARIO 2 <<<<<<
+
+	@E("tenha escolhido o {string} e {int} com {string} e {string} para compra")
+	public void tenha_escolhido_o_e_com_e_para_compra(String produto, Integer quantidade, String cor, String tamanho) throws Exception {
+		home.clickBtnAddToCart(produto);
+		comprasPage.validarInformacoesProduto(produto);
+		comprasPage.inserirInformacoesDeCompra(quantidade, cor, tamanho);
+		comprasPage.validarProdutoAdicionadoAoCarrinho(produto);
+	}
+
+	@E("validar o produto na tela de checkout")
+	public void validar_o_produto_na_tela_de_checkout() {
+		order.passoValidarCarrinho();
+		order.clicarProcederCheckout();
+	}
+
+	@E("confirmar o endereco e opcao de entrega")
+	public void confirmar_o_endereco_e_opcao_de_entrega() {
+		order.passoValidarEndereco();
+		order.clicarProcederCheckout();
+		order.validarEntrega();
+		order.clicarProcederCheckout();
+	}
+
+	@Quando("escolher a forma de pagamento {string} e finalizar a compra")
+	public void escolher_a_forma_de_pagamento_e_finalizar_a_compra(String pagamento) {
+		order.validarPagamento();
+		order.escolherMetodoDePagamento(pagamento);
+	}
+
+	@Entao("a compra devera ser realizada com sucesso")
+	public void a_compra_devera_ser_realizada_com_sucesso() {
+		order.confirmarPedido();
+		order.confirmarFinalizacaoDaCompra();
+	}
+
+
 }

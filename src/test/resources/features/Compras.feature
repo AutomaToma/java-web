@@ -21,16 +21,6 @@ Funcionalidade: Realizar uma compra
     Quando escolher a forma de pagamento "<pagamento>" e finalizar a compra
     Entao a compra devera ser realizada com sucesso
     Exemplos:
-      | produto                     | quantidade | cor  | tamanho | pagamento |
-      | Faded Short Sleeve T-shirts | 2          | Blue | M       | bankwire  |
-
-  @AUT-06
-  Cenario: Enviar email para o suporte
-    Dado que esteja logado na pagina inicial
-    Quando acessar a página de contato
-    E preencher os campos com:
-      | subject_heading | Customer service       |
-      | order_reference | YEZIJWCBY - 08/25/2021 |
-      | message         | Teste de email         |
-    E enviar o email
-    Então deve ser apresentado a mensagem "Your message has been successfully sent to our team."
+      | produto                     | quantidade | cor    | tamanho | pagamento |
+      | Faded Short Sleeve T-shirts | 1          | Blue   | M       | bankwire  |
+      | Printed Dress               | 1          | Orange | L       | cheque    |

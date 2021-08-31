@@ -68,6 +68,16 @@ public class ComprasPage extends BasePage {
 		cor.click();
 		btnAddToCart.click();
 	}
+
+	//SOBRECARGA
+	public void inserirInformacoesDeCompra(int quantidade, String cor, String tamanho) {
+		inputQuantity.clear();
+		inputQuantity.sendKeys(String.valueOf(quantidade));
+		selecionarPorTexto(selectTamanho, tamanho);
+		WebElement corElement = getDriver().findElement(By.xpath("//a[@name='"+cor+"']"));
+		corElement.click();
+		btnAddToCart.click();
+	}
 	
 	public void validarProdutoAdicionadoAoCarrinho(String nomeProduto) {
 		pietro(2000);

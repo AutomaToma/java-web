@@ -20,6 +20,9 @@ public class Driver {
 	}
 
 	public static void finish() {
-		driver.quit();
+		if(driver != null){
+			driver.quit();
+			driver = null;
+		}
 	}
 }
