@@ -4,11 +4,14 @@ import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
+import io.cucumber.datatable.DataTable;
 import pages.ComprasPage;
 import pages.HomePage;
 import pages.MyAccountPage;
 import pages.OrderPage;
 import pages.LoginPage;
+
+import java.util.List;
 
 public class ComprasStep {
 
@@ -87,6 +90,5 @@ public class ComprasStep {
 		order.confirmarPedido();
 		order.confirmarFinalizacaoDaCompra();
 	}
-
 
 }

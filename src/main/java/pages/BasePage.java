@@ -31,7 +31,7 @@ public class BasePage {
 	
 	public void selecionarPorTexto(WebElement elemento, String texto) {
 		Select selectDateDays = new Select(elemento);
-		selectDateDays.selectByVisibleText(texto);;
+		selectDateDays.selectByVisibleText(texto);
 	}
 	
 	public void selecionarPrimeiro(WebElement elemento) {
