@@ -1,11 +1,11 @@
-package steps;
+package steps.automationPratice;
 
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
-import pages.HomePage;
-import pages.MyAccountPage;
-import pages.LoginPage;
+import pages.automationPratice.HomePage;
+import pages.automationPratice.MyAccountPage;
+import pages.automationPratice.LoginPage;
 
 public class LoginStep {
 

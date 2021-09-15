@@ -1,4 +1,4 @@
-package steps;
+package steps.automationPratice;
 
 import java.util.Random;
 
@@ -7,9 +7,9 @@ import com.github.javafaker.Faker;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
-import pages.RegisterPage;
-import pages.HomePage;
-import pages.LoginPage;
+import pages.automationPratice.RegisterPage;
+import pages.automationPratice.HomePage;
+import pages.automationPratice.LoginPage;
 
 public class CadastroStep {
 
@@ -37,8 +37,8 @@ public class CadastroStep {
 
 	@Quando("realizo meu cadastro com os dados corretos")
 	public void realizo_meu_cadastro_com_os_dados_corretos() {
-		cadastro.realizarCadastro("Bruno", "Simões", email, "123456", "1", "1", "1986", "Bruno",
-				"Simões", "AutomaToma", "Rua Teste", "Teste City", "New York", "14925", "United States", "Teste",
+		cadastro.realizarCadastro("Bruno", "Simï¿½es", email, "123456", "1", "1", "1986", "Bruno",
+				"Simï¿½es", "AutomaToma", "Rua Teste", "Teste City", "New York", "14925", "United States", "Teste",
 				"9922222222", "9911111111", "Bruno Casa");
 	}
 

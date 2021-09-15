@@ -13,7 +13,7 @@ public class BasePage {
 	@FindBy(xpath="//img[contains(@class, 'logo')]")
 	private WebElement logo;
 
-	WebDriver driver = Driver.getDriver();
+	public static WebDriver driver = Driver.getDriver();
 	
 	
 	public void acessarUrl() {
@@ -31,7 +31,7 @@ public class BasePage {
 	
 	public void selecionarPorTexto(WebElement elemento, String texto) {
 		Select selectDateDays = new Select(elemento);
-		selectDateDays.selectByVisibleText(texto);;
+		selectDateDays.selectByVisibleText(texto);
 	}
 	
 	public void selecionarPrimeiro(WebElement elemento) {

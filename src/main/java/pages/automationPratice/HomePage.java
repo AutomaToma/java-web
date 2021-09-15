@@ -1,4 +1,4 @@
-package pages;
+package pages.automationPratice;
 
 import static org.junit.Assert.*;
 
@@ -10,6 +10,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import beans.ValuesHelper;
+import pages.BasePage;
+
 
 public class HomePage extends BasePage {
 
@@ -39,7 +41,8 @@ public class HomePage extends BasePage {
 	public void clickBtnAddToCart(String nomeDoProduto){
 
 		Actions actions = new Actions(driver);		
-		WebElement nomeProduto = driver.findElement(By.xpath("//li[contains(@class, 'last-item-of-mobile-line')]//a[contains(text(), '" + nomeDoProduto +"')]"));
+//		WebElement nomeProduto = driver.findElement(By.xpath("//li[contains(@class, 'last-item-of-mobile-line')]//a[contains(text(), '" + nomeDoProduto +"')]"));
+		WebElement nomeProduto = driver.findElement(By.xpath("(//h5[@itemprop='name']//a[contains(text(), '"+nomeDoProduto+"')])[1]"));
 //		WebElement precoProduto = nomeProduto.findElement(By.xpath("//..//..//..//span[@itemprop='price']"));
 //		String precoTratado = precoProduto.getText().trim().replace("$", "");		
 //		JavascriptExecutor js = (JavascriptExecutor) driver;		
@@ -50,7 +53,7 @@ public class HomePage extends BasePage {
 		
 		nomeProduto.click();
 	}
-	
+
 	public void validarItemAdicionadoCarrinho(){
 		assertTrue(lblProdutoAdicionado.isDisplayed());
 	}
