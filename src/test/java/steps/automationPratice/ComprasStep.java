@@ -1,15 +1,14 @@
-package steps;
+package steps.automationPratice;
 
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
-import io.cucumber.datatable.DataTable;
-import pages.ComprasPage;
-import pages.HomePage;
-import pages.MyAccountPage;
-import pages.OrderPage;
-import pages.LoginPage;
+import pages.automationPratice.ComprasPage;
+import pages.automationPratice.HomePage;
+import pages.automationPratice.MyAccountPage;
+import pages.automationPratice.OrderPage;
+import pages.automationPratice.LoginPage;
 
 import java.util.List;
 

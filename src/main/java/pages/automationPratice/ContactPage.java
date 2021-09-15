@@ -1,10 +1,11 @@
-package pages;
+package pages.automationPratice;
 
 import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.BasePage;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class ContactPage extends BasePage {
     private WebElement mensagemSucesso;
 
 
-    // =========== METÓDOS (AÇÕES) ===========
+    // =========== METï¿½DOS (Aï¿½ï¿½ES) ===========
 
     public void acessarPaginaDeContato() {
         linkContato.click();

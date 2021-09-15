@@ -3,7 +3,7 @@ package runner;
 import config.Driver;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import pages.HomePage;
+import pages.automationPratice.HomePage;
 
 public class Hooks extends Driver {
 
@@ -13,6 +13,13 @@ public class Hooks extends Driver {
 	public void setup() {
 		getDriver();
 		home.acessarUrl();
+
+
+		//Criar um parametro para acessar a url que for ser usada
+
+
+
+
 		
 	}
 	

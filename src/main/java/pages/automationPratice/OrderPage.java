@@ -1,4 +1,4 @@
-package pages;
+package pages.automationPratice;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import beans.ValuesHelper;
+import pages.BasePage;
 
 import static org.junit.Assert.*;
 import static config.Driver.getDriver;
@@ -143,11 +144,11 @@ public class OrderPage extends BasePage {
 
         System.out.println("PAGAMENTO SALVO: " + metodoPagamento);
 
-        System.out.println("======\n Entrando na escolha de método de pagamento \n======");
+        System.out.println("======\n Entrando na escolha de mï¿½todo de pagamento \n======");
         WebElement elemento = null;
 
         if (pagamento.equals("bankwire")) {
-            System.out.println("======\n Escolhido transferência bancária \n======");
+            System.out.println("======\n Escolhido transferï¿½ncia bancï¿½ria \n======");
             elemento = getDriver().findElement(By.xpath("//a[@class='" + pagamento + "']"));
             elemento.click();
         } else {

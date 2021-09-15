@@ -1,4 +1,4 @@
-package pages;
+package pages.automationPratice;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -8,9 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import static config.Driver.getDriver;
 
-import java.text.DecimalFormat;
 
 import beans.ValuesHelper;
+import pages.BasePage;
 
 public class ComprasPage extends BasePage {
 	
@@ -53,7 +53,7 @@ public class ComprasPage extends BasePage {
 	@FindBy(xpath = "//a[@title='Proceed to checkout']")
 	private WebElement btnProceedToCheckout;
 	
-	// --- METÓDOS --- //
+	// --- METï¿½DOS --- //
 	
 	public void validarInformacoesProduto(String nomeProduto) throws Exception {	
 		Assert.assertEquals(nomeProduto, tituloProduto.getText());

@@ -1,4 +1,4 @@
-package pages;
+package pages.automationPratice;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.BasePage;
 
 public class RegisterPage extends BasePage {
 	public RegisterPage() {

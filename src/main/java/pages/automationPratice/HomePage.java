@@ -1,4 +1,4 @@
-package pages;
+package pages.automationPratice;
 
 import static org.junit.Assert.*;
 
@@ -10,6 +10,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import beans.ValuesHelper;
+import pages.BasePage;
+
 
 public class HomePage extends BasePage {
 

@@ -1,9 +1,9 @@
-package steps;
+package steps.automationPratice;
 
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import io.cucumber.datatable.DataTable;
-import pages.ContactPage;
+import pages.automationPratice.ContactPage;
 
 public class ContatoStep {
 

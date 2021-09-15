@@ -13,7 +13,7 @@ public class BasePage {
 	@FindBy(xpath="//img[contains(@class, 'logo')]")
 	private WebElement logo;
 
-	WebDriver driver = Driver.getDriver();
+	public static WebDriver driver = Driver.getDriver();
 	
 	
 	public void acessarUrl() {
