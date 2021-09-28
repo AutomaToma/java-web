@@ -1,5 +1,6 @@
 package pages.automationPratice;
 
+import static config.Driver.getDriver;
 import static org.junit.Assert.*;
 
 import org.junit.Assert;
@@ -10,7 +11,7 @@ import pages.BasePage;
 
 public class RegisterPage extends BasePage {
 	public RegisterPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	// TEXTO

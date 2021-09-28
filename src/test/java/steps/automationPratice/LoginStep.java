@@ -16,7 +16,7 @@ public class LoginStep {
 	@Dado("que abra o site e va ate a pagina de login")
 	public void que_abra_o_site_e_va_ate_a_pagina_de_login() throws InterruptedException {
 	
-		home.acessarUrl();
+//		home.acessarUrl();
 		home.validarAcesso();
 		home.acessarLogin();
 	}
@@ -36,4 +36,11 @@ public class LoginStep {
 		minhaConta.validarMinhaConta();
 		minhaConta.validarMensagemWelcome();
 	}
+
+	@Quando("inserir usuario e senha corretamente da planilha")
+	public void inserir_usuario_e_senha_corretamente_da_planilha() {
+		login.loginComDadosDaPlanilha();
+	}
+
+
 }

@@ -1,30 +1,37 @@
 package runner;
 
-import config.Driver;
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import pages.automationPratice.HomePage;
+import datafiles.TestDataReader;
 
-public class Hooks extends Driver {
+import static config.Driver.finish;
+import static config.Driver.getDriver;
 
-	HomePage home = new HomePage(); 
-			
+
+public class Hooks{
+
+	private static TestDataReader massa = new TestDataReader();
+
 	@Before
-	public void setup() {
-		getDriver();
-		home.acessarUrl();
+	public void setup(Scenario cenario) {
+		getDriver().get("http://automationpractice.com/index.php");
 
+		Object[] tags = cenario.getSourceTagNames().toArray();
+		String ct = "";
 
-		//Criar um parametro para acessar a url que for ser usada
+		for(Object tagsNovas : tags){
+			ct = tagsNovas.toString().replace("@", "");
+			massa.setCtKey(ct);
+		}
 
+		System.out.println("RODANDO CENÁRIO: " + ct);
 
-
-
-		
 	}
 	
 	@After
 	public void tearDown() {
 		finish();
 	}
+
 }

@@ -1,5 +1,5 @@
 #language: pt
-
+@Compras
 Funcionalidade: Realizar uma compra
   Como potencial ou atual cliente da loja
   Quero realizar uma compra

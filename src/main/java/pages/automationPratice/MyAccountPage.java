@@ -1,5 +1,6 @@
 package pages.automationPratice;
 
+import static config.Driver.getDriver;
 import static org.junit.Assert.*;
 
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import pages.BasePage;
 public class MyAccountPage extends BasePage {
 	
 	public MyAccountPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(xpath="//h1[text()='My account']")

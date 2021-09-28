@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import static config.Driver.getDriver;
 
 import config.Driver;
 
@@ -13,15 +14,15 @@ public class BasePage {
 	@FindBy(xpath="//img[contains(@class, 'logo')]")
 	private WebElement logo;
 
-	public static WebDriver driver = Driver.getDriver();
+//	public static WebDriver driver = Driver.getDriver();
 	
 	
-	public void acessarUrl() {
-		driver.get("http://automationpractice.com/index.php");
-	}
+//	public void acessarUrl() {
+//		driver.get("http://automationpractice.com/index.php");
+//	}
 
 	public void acessarUrl(String url) {
-		driver.get(url);
+		getDriver().get(url);
 	}
 	
 	public void selecionarPorValue(WebElement elemento, String valor) {
@@ -53,12 +54,12 @@ public class BasePage {
 	}
 	
 	public void descerAteOTexto(String texto) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true)", driver.findElement(By.partialLinkText(texto)));
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].scrollIntoView(true)", getDriver().findElement(By.partialLinkText(texto)));
     }
 
     public void scrollDown() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,285)");
     }
 	
